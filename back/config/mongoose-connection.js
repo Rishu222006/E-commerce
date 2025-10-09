@@ -1,16 +1,15 @@
 const mongoose = require("mongoose");
-
 require("dotenv").config();
-
 const url = process.env.MONGODB_URL;
+const dbg = require("debug")("development:mongoose");
 
 mongoose
     .connect(url)
     .then(function () {
-        console.log("connected");
+        dbg("connected");
     })
     .catch(function (err) {
-        if (err) { console.error(err); }
-    })
+        if (err) { dbg(err); }
+    });
 
 module.exports = mongoose.connection;
