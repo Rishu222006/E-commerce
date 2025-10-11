@@ -33,7 +33,8 @@ app.use("/users", usersRouter);
 app.use("/products", productsRouter);
 
 app.get("/", (req, res) => {
-    res.send("Welcome to the backend server 😎");
+    let error = req.flash("error") || [];
+    res.render("index", { error });
 });
 
 app.listen(2000, () => {

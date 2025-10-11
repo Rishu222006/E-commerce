@@ -23,7 +23,7 @@ module.exports.registerUser = async function (req, res) {
                     let token = generateToken(user);
                     res
                         .cookie("token", token)
-                        .send("User created succesfully.");
+                        .redirect("/index");
                 }
             })
         });
@@ -42,7 +42,7 @@ module.exports.loginUser = async function (req, res) {
 
     let user = await user_model.findOne({ email: email });
 
-    if (!user) return res.send("Email or password incorrect.");
+    if (!user) return req.flash("User already exists.");
 
     bcrypt.compare(password, user.password, function (err, result) {
         if (result) {
@@ -50,7 +50,7 @@ module.exports.loginUser = async function (req, res) {
             res
                 .cookie("token", token)
                 .status(200)
-                .send("you can login");
+                .redirect("/users/shop");
         } else {
             return res
                 .status(401)
