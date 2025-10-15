@@ -1,43 +1,42 @@
 require("dotenv").config();
-
 const express = require("express");
 const app = express();
-const cookieParser = require("cookie-parser");
 const path = require("path");
-const db = require("./config/mongoose-connection");
+const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const flash = require("connect-flash");
 
+// 🧠 Import Routers
 const ownersRouter = require("./routes/ownerRouter.js");
-const usersRouter = require("./routes/userRouter.js");
-const productsRouter = require("./routes/productsRouter.js");
-const indexRouter = require("./routes/index.js");
 
+// 🧱 Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
+app.use(express.static(path.join(__dirname, "public")));
+
 app.use(
     expressSession({
         resave: false,
         saveUninitialized: false,
-        secret: process.env.EXPRESS_SESSION_SECRET
+        secret: process.env.EXPRESS_SESSION_SECRET || "secret123"
     })
 );
 app.use(flash());
-app.use(express.static(path.join(__dirname, "public")));
+
+// ⚙️ View Engine
 app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
 
-app.use("/index", indexRouter);
+// ✅ Mount Routers
 app.use("/owners", ownersRouter);
-app.use("/users", usersRouter);
-app.use("/products", productsRouter);
 
+// 🏠 Default Route
 app.get("/", (req, res) => {
-    let error = req.flash("error") || [];
-    res.render("index", { error });
+    res.send("Home Page — go to /owners/shop");
 });
 
+// 🚀 Start Server
 app.listen(2000, () => {
     console.log("✅ Server running on http://localhost:2000");
-    console.log(process.env.NODE_ENV);
 });
