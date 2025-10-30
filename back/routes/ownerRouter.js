@@ -5,9 +5,17 @@ require("dotenv").config();
 
 
 router.get("/", function (req, res) {
-    res.send("hey");
+    res.render("owner-login");
     console.log(process.env.NODE_ENV);
 });
+
+router.post("/admin", function (req, res) {
+    res.render("admin");
+})
+
+router.post("/create", function (req, res) {
+    res.render("createproducts");
+})
 
 if (process.env.NODE_ENV === "development") {
     router.post("/created", async function (req, res) {

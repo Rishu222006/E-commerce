@@ -8,6 +8,9 @@ const flash = require("connect-flash");
 
 // 🧠 Import Routers
 const ownersRouter = require("./routes/ownerRouter.js");
+const indexRouter = require("./routes/index.js");
+const userRouter = require("./routes/userRouter.js");
+const productsRouter = require("./routes/productsRouter.js");
 
 // 🧱 Middleware
 app.use(express.json());
@@ -30,11 +33,9 @@ app.set("views", path.join(__dirname, "views"));
 
 // ✅ Mount Routers
 app.use("/owners", ownersRouter);
-
-// 🏠 Default Route
-app.get("/", (req, res) => {
-    res.send("Home Page — go to /owners/shop");
-});
+app.use("/", indexRouter);
+app.use("/users", userRouter);
+app.use("/products", productsRouter);
 
 // 🚀 Start Server
 app.listen(2000, () => {
