@@ -1,6 +1,6 @@
 <%- include('./partials/header') %>
 
-    <% if(success.length>0){ %>
+    <% if (typeof success !=="undefined" && success.length> 0) { %>
         <div class="absolute top-5 left-1/2 -translate-x-1/2 -translate-y-1/2 p-3 rounded-md bg-blue-500">
             <span class="inline-block mt-1 mb-1 text-white">
                 <%= success %>
@@ -46,10 +46,12 @@
                                         class="border p-2 rounded w-full">
                                 </div>
                             </div>
+
                             <input class="px-5 py-2 rounded mt-3 bg-blue-500 text-white" type="submit"
                                 value="Create New Product">
                         </form>
                     </main>
                 </div>
             </div>
+
             <%- include('./partials/footer') %>

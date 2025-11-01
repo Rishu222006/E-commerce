@@ -5,7 +5,7 @@ router.get("/", function (req, res) {
     res.render("shop");
 });
 
-router.post("/cart", function (req, res) {
+router.get("/cart", function (req, res) {
     res.render("cart");
 })
 

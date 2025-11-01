@@ -2,13 +2,11 @@ const express = require("express");
 const router = express.Router();
 const product_model = require("../models/product_model.js");
 
-// ✅ Test route
 router.get("/", (req, res) => {
     res.send("works");
 });
 
-// ✅ Shop route
-router.post("/shop", async (req, res) => {
+router.get("/shop", async (req, res) => {
     try {
         const products = await product_model.find({});
         res.render("shop", { products });

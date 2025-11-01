@@ -5,15 +5,15 @@ require("dotenv").config();
 
 
 router.get("/", function (req, res) {
-    res.render("owner-login");
+    res.render("owner_login");
     console.log(process.env.NODE_ENV);
 });
 
-router.post("/admin", function (req, res) {
+router.get("/admin", function (req, res) {
     res.render("admin");
 })
 
-router.post("/create", function (req, res) {
+router.get("/create", function (req, res) {
     res.render("createproducts");
 })
 
