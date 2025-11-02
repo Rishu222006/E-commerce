@@ -5,7 +5,8 @@ const router = express.Router();
 
 router.get("/", function (req, res) {
     let error = req.flash("error");
-    res.render("index", { error });
+    let success = req.flash("success")
+    res.render("index", { error, success });
 });
 
 router.get("/shop", isLoggedIn, function (req, res) {
