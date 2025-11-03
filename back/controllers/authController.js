@@ -8,7 +8,10 @@ module.exports.registerUser = async function (req, res) {
         let { fullname, email, password } = req.body;
 
         let user = await user_model.findOne({ email: email });
-        if (user) return res.status(401).send("user already have account.");
+        if (user) {
+            req.flash("error", "Account already exists.");
+            return res.redirect("/");
+        }
 
         bcrypt.genSalt(10, function (err, salt) {
             bcrypt.hash(password, salt, async function (err, hash) {
