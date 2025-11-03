@@ -5,4 +5,8 @@ router.get("/", function (req, res) {
     res.render("shop");
 });
 
+router.get("/cart", function (req, res) {
+    res.render("cart");
+})
+
 module.exports = router;
