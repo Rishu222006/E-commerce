@@ -4,8 +4,8 @@ const product_model = require("../models/product_model.js");
 
 router.get("/shop", async (req, res) => {
     try {
-        const products = await product_model.find({});
-        res.render("shop", { products });
+        const product = await product_model.find();
+        res.render("shop", { product });
     } catch (err) {
         console.error("Error loading products:", err);
         res.status(500).send("Something went wrong.");
