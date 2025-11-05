@@ -24,4 +24,8 @@ router.post("/create", upload.single("image"), async function (req, res) {
     }
 });
 
+router.get("/cart", function (req, res) {
+    res.render("cart");
+})
+
 module.exports = router;
