@@ -24,5 +24,14 @@ router.get("/addtocart/:productid", isLoggedIn, async function (req, res) {
     res.redirect("/users/shop");
 });
 
+router.get("/cart", isLoggedIn, async function (req, res) {
+    let user = await user_model
+        .findOne({ email: req.user.email })
+        .populate("cart");
+
+    let total = user.cart[0].price + 20 - user.cart[0].discount;
+    res.render("cart", { user, total });
+});
+
 
 module.exports = router;
