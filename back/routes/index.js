@@ -18,6 +18,15 @@ router.get("/shop", isLoggedIn, async function (req, res) {
     res.render("shop", { product, success });
 });
 
+router.get("/addtocart/:productid", isLoggedIn, async function (req, res) {
+    let user = await user_model.findOne({ email: req.user.email });
+    user.cart.push(new mongoose.Types.ObjectId(req.params.productid));
+    await user.save();
+    req.flash("success", "Added to cart successfully.");
+    res.redirect("/users/shop");
+});
+
+
 router.post("/login", loginUser);
 router.post("/register", registerUser);
 router.get("/logout", logOut);

@@ -2,7 +2,6 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = express.Router();
 const product_model = require("../models/product_model.js");
-const user_model = require("../models/user_model.js");
 const isLoggedIn = require("../middlewares/isLoggedIn");
 
 router.get("/shop", async (req, res) => {
