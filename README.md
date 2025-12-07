@@ -6,6 +6,19 @@ Just an e-commerce websiite to practice backend in NODE.JS
     - MongoDB
     - Express.js
 
+# To View:
+    - To run this app/website, either clone the repository or open github codespaces.
+    - Then run the following commands:
+        1. cd back 
+        2. npm i 
+        3. npx nodemon app.js 
+
+# Features included:
+    - Auth control and login with ***hashing and salting***
+    - User cart control
+    - Product listing 
+    - Add to cart functionalities
+
 # file structure:
 
 📦back
