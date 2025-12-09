@@ -1,10 +1,19 @@
 # E-commerce
-Just an e-commerce websiite to practice backend in NODE.JS
+A simple E-commerce website backend built using Node.js, Express.js, and MongoDB. This project focuses on core backend concepts including authentication, hashing, salting, cart management, and product handling.
 
 # Tech Stack Used:
     - Node.js
     - MongoDB
+    - Mongoose
     - Express.js
+
+# Project Overview:
+This project implements essential e-commerce backend functionalities such as:
+    - Secure authentication using hashing & salting
+    - User login & session handling
+    - Product creation & listing
+    - Add-to-Cart and cart management logic
+    - Owner/Admin login panel
 
 # To View:
     - To run this app/website, either clone the repository or open github codespaces.
@@ -14,10 +23,11 @@ Just an e-commerce websiite to practice backend in NODE.JS
         3. npx nodemon app.js 
 
 # Features included:
-    - Auth control and login with ***hashing and salting***
-    - User cart control
-    - Product listing 
-    - Add to cart functionalities
+    🔐 Authentication System with hashing & salting + JWT based authentication.
+    🛒 User Cart Management (add/remove items)
+    📦 Product Listing & Details
+    ➕ Add to Cart Functionality
+    👤 Owner/Admin Controls
 
 # file structure:
 
@@ -59,3 +69,12 @@ Just an e-commerce websiite to practice backend in NODE.JS
  ┣ 📜package-lock.json
  ┣ 📜package.json
  ┗ 📜test.js
+
+# Future Improvements:
+    - API versioning
+    - Order placement & checkout system
+    - Payment gateway integration
+    - Admin dashboard enhancements
+
+# License:
+    This project is for learning and education purposes.
