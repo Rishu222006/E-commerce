@@ -30,7 +30,7 @@ This project implements essential e-commerce backend functionalities such as:
     👤 Owner/Admin Controls
 
 # file structure:
-...
+```
 📦back
  ┣ 📂config
  ┃ ┗ 📜mongoose-connection.js
@@ -69,7 +69,7 @@ This project implements essential e-commerce backend functionalities such as:
  ┣ 📜package-lock.json
  ┣ 📜package.json
  ┗ 📜test.js
- ...
+```
 
 # Future Improvements:
     - API versioning
